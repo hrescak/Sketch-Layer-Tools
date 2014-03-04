@@ -1,0 +1,25 @@
+// toggle all layer groups named specs (cmd l)
+
+var layername = "specs";
+var pages = [doc pages];
+
+for (var a=0; a<pages.length();a++){
+	var currentPage = pages[a];
+	var artboards = [currentPage artboards];
+
+	for (var i=0; i<artboards.length(); i++) {
+		var artboard = artboards[i];
+		var layergroups = [artboard layers];
+
+		for (var j=0; j<layergroups.length();j++){
+			var layergroup = layergroups[j];
+			if ([[layergroup name] isEqualToString:layername]){
+				if ([layergroup isVisible]){
+					[layergroup setIsVisible:NO];
+				} else {
+					[layergroup setIsVisible:YES];
+				}
+			}
+		}	
+	}	
+}
