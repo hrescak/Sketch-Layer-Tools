@@ -1,4 +1,4 @@
-// toggle all layer groups named specs (cmd l)
+// toggle all layers named specs (cmd l)
 
 var layername = "specs";
 var pages = [doc pages];
@@ -9,15 +9,15 @@ for (var a=0; a<pages.length();a++){
 
 	for (var i=0; i<artboards.length(); i++) {
 		var artboard = artboards[i];
-		var layergroups = [artboard layers];
+		var layers = [artboard layers];
 
-		for (var j=0; j<layergroups.length();j++){
-			var layergroup = layergroups[j];
-			if ([[layergroup name] isEqualToString:layername]){
-				if ([layergroup isVisible]){
-					[layergroup setIsVisible:NO];
+		for (var j=0; j<layers.length();j++){
+			var layer = [layers objectAtIndex: j];
+			if ([[layer name] isEqualToString:layername]){
+				if ([layer isVisible]){
+					[layer setIsVisible: false];
 				} else {
-					[layergroup setIsVisible:YES];
+					[layer setIsVisible: true];
 				}
 			}
 		}	
