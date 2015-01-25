@@ -2,24 +2,42 @@
 
 var layername = "specs";
 var pages = [doc pages];
+var visibility = nil;  // whether all specs will be toggled on or off (vs toggling each layer independently)
 
 for (var a=0; a<pages.length();a++){
-	var currentPage = pages[a];
-	var artboards = [currentPage artboards];
+	var page = pages[a];
+	var artboards = [page artboards];
 
-	for (var i=0; i<artboards.length(); i++) {
-		var artboard = artboards[i];
-		var layergroups = [artboard layers];
+	if (artboards.length()) {	  // if this page has artboards...
+		for (var i=0; i<artboards.length(); i++) {
+			var artboard = artboards[i];
+			var layers = [artboard layers];
 
-		for (var j=0; j<layergroups.length();j++){
-			var layergroup = layergroups[j];
-			if ([[layergroup name] isEqualToString:layername]){
-				if ([layergroup isVisible]){
-					[layergroup setIsVisible:NO];
-				} else {
-					[layergroup setIsVisible:YES];
+			for (var j=0; j<layers.length();j++){
+				var layer = [layers objectAtIndex: j];
+				if ([[layer name] isEqualToString:layername]){
+					// determine whether to toggle all specs on or off
+					if (visibility == nil) {
+						visibility = [layer isVisible] ? false : true;
+					}
+
+					[layer setIsVisible: visibility];
 				}
+			}	
+		}		
+	} else {  // if this page doesn't have artboards...
+		var layers = [page layers];
+
+		for (var j=0; j<layers.length();j++){
+			var layer = [layers objectAtIndex: j];
+			if ([[layer name] isEqualToString:layername]){
+				// determine whether to toggle all specs on or off
+				if (visibility == nil) {
+					visibility = [layer isVisible] ? false : true;
+				}
+
+				[layer setIsVisible: visibility];
 			}
 		}	
-	}	
+	}
 }
