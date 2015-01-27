@@ -1,6 +1,6 @@
-// toggle all layer groups named specs (cmd l)
+// toggle all layer groups having name beginning with 'specs' (cmd l)
 
-var layername = "specs";
+var layerprefix = "specs";
 var pages = [doc pages];
 var visibility = nil;  // whether all specs will be toggled on or off (vs toggling each layer independently)
 
@@ -15,7 +15,8 @@ for (var a=0; a<pages.length();a++){
 
 			for (var j=0; j<layers.length();j++){
 				var layer = [layers objectAtIndex: j];
-				if ([[layer name] isEqualToString:layername]){
+				layername = [layer name];
+				if (layername.substr(0, layerprefix.length) == layerprefix){
 					// determine whether to toggle all specs on or off
 					if (visibility == nil) {
 						visibility = [layer isVisible] ? false : true;
@@ -30,7 +31,8 @@ for (var a=0; a<pages.length();a++){
 
 		for (var j=0; j<layers.length();j++){
 			var layer = [layers objectAtIndex: j];
-			if ([[layer name] isEqualToString:layername]){
+			layername = [layer name];
+			if (layername.substr(0, layerprefix.length) == layerprefix){
 				// determine whether to toggle all specs on or off
 				if (visibility == nil) {
 					visibility = [layer isVisible] ? false : true;
