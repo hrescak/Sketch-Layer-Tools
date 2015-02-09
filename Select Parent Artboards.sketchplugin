@@ -1,0 +1,21 @@
+// select artboards that are parents of current selection (cmd shift a)
+
+for (var i=0; i<selection.count(); i++) {
+	var layer = selection[i];
+	var artboardToSelect = null;
+	
+	if ([layer class] == "MSArtboardGroup") {
+		artboardToSelect = layer;
+	} else {
+		var layerParentGroup = [layer parentGroup];
+		while ([layerParentGroup class] != "MSArtboardGroup"){
+			layerParentGroup = [layerParentGroup parentGroup]
+		}
+		artboardToSelect = layerParentGroup;
+	}
+	
+	if (artboardToSelect) {
+		[layer select:false byExpandingSelection:true];
+		[artboardToSelect select:true byExpandingSelection:true];
+	}
+}
