@@ -8,10 +8,13 @@ for (var i=0; i<selection.count(); i++) {
 		artboardToSelect = layer;
 	} else {
 		var layerParentGroup = [layer parentGroup];
-		while ([layerParentGroup class] != "MSArtboardGroup"){
-			layerParentGroup = [layerParentGroup parentGroup]
+		while (layerParentGroup){
+			if ([layerParentGroup class] == "MSArtboardGroup"){
+				artboardToSelect = layerParentGroup;
+				break;
+			}
+			layerParentGroup = [layerParentGroup parentGroup];
 		}
-		artboardToSelect = layerParentGroup;
 	}
 	
 	if (artboardToSelect) {
