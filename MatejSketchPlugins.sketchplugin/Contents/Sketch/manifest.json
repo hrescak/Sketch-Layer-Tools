@@ -1,0 +1,42 @@
+{
+  "name": "MatejSketchPlugins",
+  "description" : "A box for random sketch plugins",
+  "author" : "Matej Hrescak",
+  "authorEmail" : "matej@hrescak.com",
+  "homepage": "http://github.com/hrescak/MatejSketchPlugins",
+  "version" : "1.0",
+  "identifier" : "com.hrescak.matej-sketch-plugins",
+  "compatibleVersion": "3.3",
+  "bundleVersion": "1",
+  "commands" : [
+    {
+      "name" : "Align to Pixel",
+      "script" : "align-to-pixel.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd shift /'",
+      "identifier" : "align-to-pixel"
+    },
+    {
+      "name" : "Select Parent Artboards",
+      "script" : "select-parent-artboards.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd shift a",
+      "identifier" : "select-parent-artboards"
+    },
+    {
+      "name" : "Toggle Specs",
+      "script" : "toggle-specs.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd l",
+      "identifier" : "toggle-specs"
+    }
+  ],
+  "menu" : {
+    "title" : "Matej Plugins",
+    "items" : [
+      "toggle-specs",
+      "select-parent-artboards",
+      "align-to-pixel"
+    ]
+  }
+}
