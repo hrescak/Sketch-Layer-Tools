@@ -4,7 +4,7 @@
   "author" : "Matej Hrescak",
   "authorEmail" : "matej@hrescak.com",
   "homepage": "http://github.com/hrescak/MatejSketchPlugins",
-  "version" : "1.0",
+  "version" : "1.1",
   "identifier" : "com.hrescak.matej-sketch-plugins",
   "compatibleVersion": "3.3",
   "bundleVersion": "1",
@@ -29,6 +29,12 @@
       "handler" : "onRun",
       "shortcut" : "cmd l",
       "identifier" : "toggle-specs"
+    },
+    {
+      "name" : "Find and Replace in Selected Layer Names",
+      "script" : "find-replace.cocoascript",
+      "handler" : "replaceText",
+      "identifier" : "find-replace"
     }
   ],
   "menu" : {
@@ -36,7 +42,8 @@
     "items" : [
       "toggle-specs",
       "select-parent-artboards",
-      "align-to-pixel"
+      "align-to-pixel",
+      "find-replace"
     ]
   }
 }
