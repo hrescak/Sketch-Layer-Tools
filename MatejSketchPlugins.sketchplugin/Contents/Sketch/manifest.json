@@ -11,29 +11,29 @@
   "commands" : [
     {
       "name" : "Align to Pixel",
-      "script" : "align-to-pixel.cocoascript",
+      "script" : "alignToPixel.js",
       "handler" : "onRun",
       "shortcut" : "cmd shift /'",
       "identifier" : "align-to-pixel"
     },
     {
       "name" : "Select Parent Artboards",
-      "script" : "select-parent-artboards.cocoascript",
+      "script" : "selectParentArtboards.js",
       "handler" : "onRun",
       "shortcut" : "cmd shift a",
       "identifier" : "select-parent-artboards"
     },
     {
       "name" : "Toggle Specs",
-      "script" : "toggle-specs.cocoascript",
+      "script" : "toggleSpecs.js",
       "handler" : "onRun",
       "shortcut" : "cmd l",
       "identifier" : "toggle-specs"
     },
     {
       "name" : "Find and Replace in Selected Layer Names",
-      "script" : "find-replace.cocoascript",
-      "handler" : "replaceText",
+      "script" : "findReplace.js",
+      "handler" : "onRun",
       "identifier" : "find-replace"
     }
   ],
