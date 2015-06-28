@@ -8,5 +8,3 @@ A box for random useful sketch plugins
 - **Select Parent Artboards** (cmd+shift+A) selects artboards that contain currently selected layers or groups. You can just draw a selection rectangle and hit the shortcut instead of selecting artboards one by one. Useful for moving many artboards around at once.
 
 - **Align to Pixel** (cmd+shift+’) aligns the selected layer or group to whole pixels by rounding the x and y values.
-
-- **Find and Replace in Selected Layer Names** Find and replace text in all of the selected layers' names.

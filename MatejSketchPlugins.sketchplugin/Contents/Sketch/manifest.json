@@ -29,12 +29,6 @@
       "handler" : "onRun",
       "shortcut" : "cmd l",
       "identifier" : "toggle-specs"
-    },
-    {
-      "name" : "Find and Replace in Selected Layer Names",
-      "script" : "findReplace.js",
-      "handler" : "onRun",
-      "identifier" : "find-replace"
     }
   ],
   "menu" : {
@@ -42,8 +36,7 @@
     "items" : [
       "toggle-specs",
       "select-parent-artboards",
-      "align-to-pixel",
-      "find-replace"
+      "align-to-pixel"
     ]
   }
 }
