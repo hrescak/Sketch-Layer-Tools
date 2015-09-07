@@ -1,6 +1,6 @@
 {
-  "name": "MatejSketchPlugins",
-  "description" : "A box for random sketch plugins",
+  "name": "Layer Tools",
+  "description" : "Various Sketch commands to make work with layers easier",
   "author" : "Matej Hrescak",
   "authorEmail" : "matej@hrescak.com",
   "homepage": "http://github.com/hrescak/MatejSketchPlugins",
@@ -10,33 +10,185 @@
   "bundleVersion": "1",
   "commands" : [
     {
-      "name" : "Align to Pixel",
-      "script" : "alignToPixel.js",
-      "handler" : "onRun",
-      "shortcut" : "cmd shift /'",
-      "identifier" : "align-to-pixel"
+      "name" : "All Shapes",
+      "script" : "src/select.js",
+      "handler" : "selectAllShapes",
+      "identifier" : "select-all-shapes"
     },
     {
-      "name" : "Select Parent Artboards",
-      "script" : "selectParentArtboards.js",
-      "handler" : "onRun",
+      "name" : "All Text Layers",
+      "script" : "src/select.js",
+      "handler" : "selectAllTextLayers",
+      "identifier" : "select-all-textlayers"
+    },
+    {
+      "name" : "All Artboards",
+      "script" : "src/select.js",
+      "handler" : "selectAllArtboards",
+      "identifier" : "select-all-artboards"
+    },
+    {
+      "name" : "All Layer Groups",
+      "script" : "src/select.js",
+      "handler" : "selectAllGroups",
+      "identifier" : "select-all-groups"
+    },
+    {
+      "name" : "All Bitmap Layers",
+      "script" : "src/select.js",
+      "handler" : "selectAllBitmapLayers",
+      "identifier" : "select-all-bitmaps"
+    },
+    {
+      "name" : "Same Fill Color",
+      "script" : "src/select.js",
+      "handler" : "selectSameFill",
+      "identifier" : "select-same-fill"
+    },
+    {
+      "name" : "Same Border Color",
+      "script" : "src/select.js",
+      "handler" : "selectSameBorder",
+      "identifier" : "select-same-border"
+    },
+    {
+      "name" : "Layers Starting With…",
+      "script" : "src/select.js",
+      "handler" : "selectStartingWith",
+      "identifier" : "select-starting-with"
+    },
+    {
+      "name" : "Layers Ending With…",
+      "script" : "src/select.js",
+      "handler" : "selectEndingWith",
+      "identifier" : "select-ending-with"
+    },
+    {
+      "name" : "Layers with Text in Name…",
+      "script" : "src/select.js",
+      "handler" : "selectContaining",
+      "identifier" : "select-containing"
+    },
+    {
+      "name" : "Parent Artboards",
+      "script" : "src/select.js",
+      "handler" : "selectParentArtboards",
       "shortcut" : "cmd shift a",
       "identifier" : "select-parent-artboards"
     },
     {
-      "name" : "Toggle Specs",
-      "script" : "toggleSpecs.js",
-      "handler" : "onRun",
+      "name" : "Selected Alphabetically",
+      "script" : "src/sort.js",
+      "handler" : "sortAlphabetically",
+      "identifier" : "sort-alphabetically"
+    },
+    {
+      "name" : "Selected by Vertical Position",
+      "script" : "src/sort.js",
+      "handler" : "sortByVerticalPosition",
+      "identifier" : "sort-vertically"
+    },
+    {
+      "name" : "Selected by Horizontal Position",
+      "script" : "src/sort.js",
+      "handler" : "sortByHorizontalPosition",
+      "identifier" : "sort-horizontally"
+    },
+    {
+      "name" : "Reverse selected",
+      "script" : "src/sort.js",
+      "handler" : "sortReverse",
+      "identifier" : "sort-reverse"
+    },
+    {
+      "name" : "Toggle Layers",
+      "script" : "src/toggle.js",
+      "handler" : "toggleLayers",
       "shortcut" : "cmd l",
-      "identifier" : "toggle-specs"
+      "identifier" : "toggle-layers"
+    },
+    {
+      "name" : "Toggle Layers Settings…",
+      "script" : "src/toggle.js",
+      "handler" : "toggleLayersSettings",
+      "identifier" : "toggle-layers-settings"
+    },
+    {
+      "name" : "Find and Replace in Selected…",
+      "script" : "src/rename.js",
+      "handler" : "findReplaceSelected",
+      "identifier" : "rename-find-replace-selected"
+    },
+    {
+      "name" : "Find and Replace in All…",
+      "script" : "src/rename.js",
+      "handler" : "findReplaceAll",
+      "identifier" : "rename-find-replace-all"
+    },
+    {
+      "name" : "Append to Selected Layer Names…",
+      "script" : "src/rename.js",
+      "handler" : "appendToSelected",
+      "identifier" : "rename-append-selected"
+    },
+    {
+      "name" : "Prepend Selected Layer Names…",
+      "script" : "src/rename.js",
+      "handler" : "prependSelected",
+      "identifier" : "rename-prepend-selected"
+    },
+    {
+      "name" : "Remove 'copy' from All Layer Names",
+      "script" : "src/rename.js",
+      "handler" : "removeCopy",
+      "identifier" : "rename-remove-copy"
     }
   ],
   "menu" : {
-    "title" : "Matej Plugins",
+    "isRoot" : true,
     "items" : [
-      "toggle-specs",
-      "select-parent-artboards",
-      "align-to-pixel"
+      {
+        "title" : "Layer Tools - Select",
+        "items" : [
+          "select-all-shapes",
+          "select-all-artboards",
+          "select-all-textlayers",
+          "select-all-groups",
+          "select-all-bitmaps",
+          "select-same-fill",
+          "select-same-border",
+          "select-starting-with",
+          "select-ending-with",
+          "select-containing",
+          "select-parent-artboards"
+        ]
+      },
+      {
+        "title" : "Layer Tools - Sort in List",
+        "items" : [
+          "sort-alphabetically",
+          "sort-vertically",
+          "sort-horizontally",
+          "sort-reverse"
+        ]
+      },
+      {
+        "title" : "Layer Tools - Toggle",
+        "items" : [
+          "toggle-layers",
+          "toggle-layers-settings"
+        ]
+      },
+      {
+        "title" : "Layer Tools - Rename",
+        "items" : [
+          "rename-find-replace-selected",
+          "rename-find-replace-all",
+          "rename-append-selected",
+          "rename-prepend-selected",
+          "rename-remove-copy"
+        ]
+      }
     ]
   }
 }
