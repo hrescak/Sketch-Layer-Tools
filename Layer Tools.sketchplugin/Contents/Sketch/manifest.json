@@ -95,7 +95,7 @@
       "identifier" : "sort-horizontally"
     },
     {
-      "name" : "Reverse selected",
+      "name" : "Reverse Selected",
       "script" : "src/sort.js",
       "handler" : "sortReverse",
       "identifier" : "sort-reverse"
