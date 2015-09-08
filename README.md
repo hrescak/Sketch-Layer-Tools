@@ -1,7 +1,7 @@
 Sketch Layer Tools
 =============
 
-A box for random useful sketch commands meant to make work with layers easier. Contains a bunch of my previous commands and plugins combined.
+A box for random useful sketch commands meant to make work with layers easier. Contains most of my previous commands and plugins combined, plus a bunch of new ones
 
 ### Select
 Select layers based on various conditions
