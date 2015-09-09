@@ -51,7 +51,7 @@ var toggleLayers = function(context){
 var toggleLayersSettings = function(context){
   utils.init(context);
 
-  var toggleString = kToggleName;
+  var toggleLayerName = kToggleName;
   var toggleWithOpacity = false;
 
   // load defaults
