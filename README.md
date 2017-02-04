@@ -1,7 +1,7 @@
 Sketch Layer Tools
 =============
 
-`latest version tested: sketch 42`
+`latest Sketch version tested: 42`
 
 A box for random useful sketch commands meant to make work with layers easier. Contains most of my previous commands and plugins combined, plus a bunch of new ones
 
@@ -15,6 +15,7 @@ Select layers based on various conditions
 - **All Bitmap Layers** Selects all the bitmap layers on the current page
 - **Same Fill Color** Selects all the layers that have the same fill color as the layer that's currently selected (only takes into account the bottommost fill)
 - **Same Border Color** Selects all the layers that have the same border color as the selected layer (only takes into account the bottommost border)
+- **Same Fill and Border Color** Selects all the layers that have the same fill and border color as the selected layer (only takes into account the bottommost fill and border)
 - **Layers Starting With…**  Selects all of the layers starting with a given text. Good for selecting all 'Rectangle' layers for example
 - **Layers Ending With…** Same as above but looks for layers whose name ends with a given text
 - **Layers with Text in Name…**  Selects all of the layers whose name contains a given text
