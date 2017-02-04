@@ -63,7 +63,7 @@ utils.call = {
   childLayers : function(layer, callback){
     callback(layer);
     if (utils.is.group(layer)) {
-      var childLayers = [layer layers].array();
+      var childLayers = [layer layers];
       if (childLayers) {
         for (var i = 0; i < childLayers.count(); i++) {
           utils.call.childLayers(childLayers[i], callback);
@@ -108,6 +108,24 @@ utils.is = {
   // returns whether multiple layers are selected
   multipleSelected : function(){
     return (selection.count() > 1);
+  }
+}
+
+// layer checks for styles
+utils.has = {
+  // returns whether layer's first fill is of a given color
+  fillColor: function(layer, color){
+    var layerFills = layer.style().fills();
+    if(layerFills && layerFills.count() != 0){
+      return layerFills.firstObject().color().isEqualTo(color);
+    }
+  },
+  // returns whether layer's first border is of a given color
+  borderColor: function(layer, color){
+    var layerBorders = layer.style().borders();
+    if(layerBorders && layerBorders.count() != 0){
+      return layerBorders.firstObject().color().isEqualTo(color);
+    }
   }
 }
 

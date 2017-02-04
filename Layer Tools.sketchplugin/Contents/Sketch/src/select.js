@@ -39,7 +39,6 @@ var selectSameFill = function(context){
   } else if (utils.is.multipleSelected()) {
     utils.UI.showMessage("Multiple layers selected, taking style of first one");
   }
-
   var selectedLayerFills = selection[0].style().fills();
   if (!selectedLayerFills || selectedLayerFills.count() == 0) {
     utils.UI.showError("Selected object has no fill color");
@@ -47,7 +46,7 @@ var selectSameFill = function(context){
   }
   var fillColor = selectedLayerFills.firstObject().color();
 
-  selectLayersUsingPredicate("(style.fills.firstObject.color == %@)", fillColor);
+  selectLayersByMatchingColor(utils.has.fillColor, fillColor);
 }
 
 // select layer with the same border color
@@ -67,7 +66,7 @@ var selectSameBorder = function(context){
   }
   var borderColor = selectedLayerBorders.firstObject().color();
 
-  selectLayersUsingPredicate("(style.borders.firstObject.color == %@)", borderColor);
+  selectLayersByMatchingColor(utils.has.borderColor, borderColor);
 }
 
 // select layers starting with {string}
@@ -109,6 +108,10 @@ var selectContaining = function(context){
 // select parent artboard(s)
 var selectParentArtboards = function(context){
   utils.init(context);
+  if (utils.is.selectionEmpty()) {
+    utils.UI.showMessage("No layers selected");
+    return;
+  }
   utils.call.selectedLayers(function(layer){
     var artboardToSelect = null;
 
@@ -138,11 +141,21 @@ var selectLayersOfType = function(layerType) {
   selectLayersUsingPredicate("(className == %@)", layerType);
 }
 
+var selectLayersByMatchingColor = function(condition, color){
+  [[doc currentPage] deselectAllLayers];
+  utils.call.pageLayers(function(layer){
+    if(condition(layer, color)){
+      [layer select:true byExpandingSelection:true];
+    };
+  });
+}
+
 var selectLayersUsingPredicate = function(predicate, object){
   var scope = [page children];
 	var	layerPredicate = NSPredicate.predicateWithFormat(predicate, object);
+  log (layerPredicate);
 	var layers = [scope filteredArrayUsingPredicate:layerPredicate];
-
+  log(layers);
 	[[doc currentPage] deselectAllLayers];
 
 	var loop = [layers objectEnumerator], layer;

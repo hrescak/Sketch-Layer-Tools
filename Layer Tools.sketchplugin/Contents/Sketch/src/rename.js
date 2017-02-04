@@ -75,7 +75,7 @@ var removeCopy = function(context){
   utils.init(context);
   utils.call.pageLayers(function(layer){
     var layerName = [layer name];
-    var copyRange = [layerName rangeOfString:" copy"];
+    var copyRange = [layerName rangeOfString:" Copy"];
     if (copyRange.length > 0) { // hack to simulate NSNotFound
       // ignore the automatically named groups (rect copy2 + oval + foo copy)
       var plusRange = [layerName rangeOfString:" + "];
@@ -108,6 +108,7 @@ var replaceDialog = function(){
   [[replaceField cell] setPlaceholderString:@"Replace..."];
   [replaceField setWantsLayer:true];
   [findField setWantsLayer:true];
+  [findField setNextKeyView:replaceField];
 
   var fieldsView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 300, 55)];
   [fieldsView addSubview: findField];
