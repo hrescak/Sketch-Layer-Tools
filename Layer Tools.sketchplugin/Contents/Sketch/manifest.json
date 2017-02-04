@@ -52,6 +52,12 @@
       "identifier" : "select-same-border"
     },
     {
+      "name" : "Same Fill and Border Color",
+      "script" : "src/select.js",
+      "handler" : "selectSameFillBorder",
+      "identifier" : "select-same-fill-border"
+    },
+    {
       "name" : "Layers Starting With…",
       "script" : "src/select.js",
       "handler" : "selectStartingWith",
@@ -157,6 +163,7 @@
           "select-all-bitmaps",
           "select-same-fill",
           "select-same-border",
+          "select-same-fill-border",
           "select-starting-with",
           "select-ending-with",
           "select-containing",

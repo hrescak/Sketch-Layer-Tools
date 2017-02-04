@@ -69,6 +69,34 @@ var selectSameBorder = function(context){
   selectLayersByMatchingColor(utils.has.borderColor, borderColor);
 }
 
+// select layer with the same fill AND border color
+var selectSameFillBorder = function(context){
+  utils.init(context);
+  if (utils.is.selectionEmpty()) {
+    utils.UI.showMessage("No layers selected");
+    return;
+  } else if (utils.is.multipleSelected()) {
+    utils.UI.showMessage("Multiple layers selected, taking style of first one");
+  }
+
+  var selectedLayerBorders = selection[0].style().borders();
+  if (!selectedLayerBorders || selectedLayerBorders.count() == 0) {
+    utils.UI.showError("Selected object has no border color");
+    return;
+  }
+  var selectedLayerFills = selection[0].style().fills();
+  if (!selectedLayerFills || selectedLayerFills.count() == 0) {
+    utils.UI.showError("Selected object has no fill color");
+    return;
+  }
+  var fillColor = selectedLayerFills.firstObject().color();
+  var borderColor = selectedLayerBorders.firstObject().color();
+
+  selectLayersByMatchingColor(function(layer){
+    return (utils.has.borderColor(layer, borderColor) && utils.has.fillColor(layer, fillColor));
+  });
+}
+
 // select layers starting with {string}
 var selectStartingWith = function(context){
   utils.init(context);
