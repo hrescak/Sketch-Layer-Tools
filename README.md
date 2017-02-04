@@ -1,6 +1,8 @@
 Sketch Layer Tools
 =============
 
+`latest version tested: sketch 42`
+
 A box for random useful sketch commands meant to make work with layers easier. Contains most of my previous commands and plugins combined, plus a bunch of new ones
 
 ### Select

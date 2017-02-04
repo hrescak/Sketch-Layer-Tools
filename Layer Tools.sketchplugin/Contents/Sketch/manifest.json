@@ -3,8 +3,8 @@
   "description" : "Various Sketch commands to make work with layers easier",
   "author" : "Matej Hrescak",
   "authorEmail" : "matej@hrescak.com",
-  "homepage": "http://github.com/hrescak/MatejSketchPlugins",
-  "version" : "1.1",
+  "homepage": "https://github.com/hrescak/Sketch-Layer-Tools",
+  "version" : "1.2",
   "identifier" : "com.hrescak.matej-sketch-plugins",
   "compatibleVersion": "3.3",
   "bundleVersion": "1",
@@ -50,6 +50,12 @@
       "script" : "src/select.js",
       "handler" : "selectSameBorder",
       "identifier" : "select-same-border"
+    },
+    {
+      "name" : "Same Fill and Border Color",
+      "script" : "src/select.js",
+      "handler" : "selectSameFillBorder",
+      "identifier" : "select-same-fill-border"
     },
     {
       "name" : "Layers Starting With…",
@@ -157,6 +163,7 @@
           "select-all-bitmaps",
           "select-same-fill",
           "select-same-border",
+          "select-same-fill-border",
           "select-starting-with",
           "select-ending-with",
           "select-containing",
